@@ -39,21 +39,66 @@ impl CustomList {
             command: ""
         } => {
             ListNode {
-                name: "Eza",
-                command: "eza -la"
+                name: "Please select a command: ([R] designates scripts that require running with root)",
+                command: "echo \"this command does nothing...\""
             },
             ListNode {
-                name: "Just ls, nothing special, trust me",
-                command: include_str!("commands/special_ls.sh"),
-            },
-            ListNode {
-                name: "Test Category",
+                name: "First install scripts",
                 command: ""
             } => {
                 ListNode {
-                    name: "Recursion?",
-                    command: "cargo run"
+                    name: "[R] Setup cli utilities (stow, tmux, fzf, zsh, etc)",
+                    command: include_str!("commands/setup-cli.sh"),
                 },
+                ListNode {
+                    name: "[R] Setup MPD + ncmpcpp",
+                    command: include_str!("commands/setup-mpd.sh"),
+                },
+                ListNode {
+                    name: "[R] Setup grabbers (yt-dlp, gallery-dl)",
+                    command: include_str!("commands/setup-grabbers.sh"),
+                },
+                ListNode {
+                    name: "[R] Setup Chaotic-AUR [to test]",
+                    command: include_str!("commands/setup-caur.sh"),
+                },
+                ListNode {
+                    name: "[R] Setup TUIs (neomutt, iamb)",
+                    command: include_str!("commands/setup-tuis.sh"), 
+                },
+                ListNode {
+                    name: "[R] Install all GUI programs",
+                    command: include_str!("commands/setup-gui.sh")
+                },
+                ListNode {
+                    name: "[R] Install Flatpak",
+                    command: include_str!("commands/install-flatpak.sh")
+                }
+            },
+            ListNode {
+                name: "Rust",
+                command: ""
+            } => {
+                ListNode {
+                    name: "Install Rust",
+                    command: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh && rustup update"
+                },
+                ListNode {
+                    name: "Install Yazi",
+                    command: "cargo install --locked yazi-fm yazi-cli"
+                },
+                ListNode {
+                    name: "Install ctow",
+                    command: "cargo install ctow"
+                },
+                ListNode {
+                    name: "Install iamb",
+                    command: "cargo install --locked iamb"
+                },
+                ListNode {
+                    name: "Install netscanner",
+                    command: "cargo install netscanner"
+                }
             }
         });
         // We don't get a reference, but rather an id, because references are siginficantly more
