@@ -105,8 +105,13 @@ impl CustomList {
                 }
             },
             ListNode {
-                name: "Setup Librewolf native messaging symlink",
-                command: include_str!("commands/setup-librewolf.sh")
+                name: "Tweaks & Misc",
+                command: ""
+            } => {
+                ListNode {
+                    name: "Setup Librewolf native messaging symlink",
+                    command: include_str!("commands/setup-librewolf.sh")
+                }
             }
         });
         // We don't get a reference, but rather an id, because references are siginficantly more
@@ -130,9 +135,9 @@ impl CustomList {
         let mut items = vec![];
 
         let title = if !self.at_root() {
-            format!("SysSetup - {}", curr.value().name)
+            format!(" SysSetup - {} ", curr.value().name)
         } else {
-            "SysSetup".to_string()
+            " SysSetup ".to_string()
         };
 
         // If we are not at the root of our filesystem tree, we need to add `..` path, to be able
