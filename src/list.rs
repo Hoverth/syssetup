@@ -43,10 +43,6 @@ impl CustomList {
                 command: "eza -la"
             },
             ListNode {
-                name: "sleep and Eza",
-                command: "sleep 2 && eza -la"
-            },
-            ListNode {
                 name: "Just ls, nothing special, trust me",
                 command: include_str!("commands/special_ls.sh"),
             },
@@ -54,14 +50,6 @@ impl CustomList {
                 name: "Test Category",
                 command: ""
             } => {
-                ListNode {
-                    name: "sleep, eza, sleep, eza",
-                    command: "sleep 1 && eza -la && sleep 1 && eza -la && echo Bonus eza comming... && sleep 1 && eza -la"
-                },
-                ListNode {
-                    name: "Just open neovim :), because I can",
-                    command: "nvim"
-                },
                 ListNode {
                     name: "Recursion?",
                     command: "cargo run"
@@ -87,6 +75,12 @@ impl CustomList {
             .get(*self.visit_stack.last().unwrap())
             .unwrap();
         let mut items = vec![];
+
+        let title = if !self.at_root() {
+            format!("SysSetup - {}", curr.value().name)
+        } else {
+            "SysSetup".to_string()
+        };
 
         // If we are not at the root of our filesystem tree, we need to add `..` path, to be able
         // to go up the tree
@@ -116,7 +110,7 @@ impl CustomList {
         // node
         let list = List::new(items)
             .highlight_style(Style::default().reversed())
-            .block(Block::default().borders(Borders::ALL).title("List"))
+            .block(Block::default().borders(Borders::ALL).title(title))
             .scroll_padding(1);
 
         // Render it
