@@ -22,11 +22,11 @@ pub const THEMES: [Theme; 2] = [
     },
     Theme {
         dir_color: Color::Blue,
-        cmd_color: Color::Rgb(204, 224, 208),
+        cmd_color: Color::Magenta,
         dir_icon: "  ",
         cmd_icon: "  ",
-        fail_color: Color::Rgb(199, 55, 44),
-        success_color: Color::Rgb(5, 255, 55),
+        fail_color: Color::Red,
+        success_color: Color::Green,
     },
 ];
 
