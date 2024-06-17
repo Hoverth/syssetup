@@ -103,6 +103,10 @@ impl CustomList {
                     name: "Install netscanner",
                     command: "cargo install netscanner"
                 }
+            },
+            ListNode {
+                name: "Setup Librewolf native messaging symlink",
+                command: include_str!("commands/setup-librewolf.sh")
             }
         });
         // We don't get a reference, but rather an id, because references are siginficantly more
