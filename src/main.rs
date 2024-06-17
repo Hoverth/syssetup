@@ -69,7 +69,7 @@ fn run<B: Backend>(terminal: &mut Terminal<B>) -> io::Result<()> {
                 // We are only interested in Press and Repeat events
                 if key.kind == KeyEventKind::Press || key.kind == KeyEventKind::Repeat {
                     // Only process list inputs when a command is not running
-                    if let None = command_opt {
+                    if command_opt.is_none() {
                         if let Some(cmd) = custom_list.handle_key(key) {
                             command_opt = Some(RunningCommand::new(cmd));
                         }

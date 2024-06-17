@@ -9,7 +9,7 @@ use portable_pty::{
 };
 use ratatui::{
     layout::Size,
-    style::{Color, Style, Styled, Stylize},
+    style::{Color, Style, Stylize},
     text::{Line, Span},
     widgets::{Block, Borders},
     Frame,
