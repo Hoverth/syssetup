@@ -47,6 +47,10 @@ impl CustomList {
                 command: ""
             } => {
                 ListNode {
+                    name: "[R] Install the extra firmware packages",
+                    command: include_str!("commands/install-extra-firmware.sh")
+                },
+                ListNode {
                     name: "[R] Setup cli utilities (stow, tmux, fzf, zsh, etc)",
                     command: include_str!("commands/setup-cli.sh"),
                 },
