@@ -10,7 +10,6 @@ use std::{
 
 use clap::Parser;
 use crossterm::{
-    cursor::RestorePosition,
     event::{self, DisableMouseCapture, Event, KeyCode, KeyEventKind, KeyModifiers},
     style::ResetColor,
     terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
@@ -50,7 +49,6 @@ fn main() -> std::io::Result<()> {
     terminal.backend_mut().execute(LeaveAlternateScreen)?;
     terminal.backend_mut().execute(DisableMouseCapture)?;
     terminal.backend_mut().execute(ResetColor)?;
-    terminal.backend_mut().execute(RestorePosition)?;
     terminal.show_cursor()?;
     Ok(())
 }
