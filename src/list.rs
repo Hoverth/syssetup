@@ -77,7 +77,11 @@ impl CustomList {
                 ListNode {
                     name: "[R] Install Flatpak",
                     command: include_str!("commands/install-flatpak.sh")
-                }
+                },
+                ListNode {
+                    name: "Install Flatpak Applications",
+                    command: include_str!("commands/install-flatpak-apps.sh")
+                },
             },
             ListNode {
                 name: "Rust",
@@ -88,8 +92,12 @@ impl CustomList {
                     command: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh && rustup update"
                 },
                 ListNode {
-                    name: "Install Yazi",
+                    name: "Install yazi",
                     command: "cargo install --locked yazi-fm yazi-cli"
+                },
+                ListNode {
+                    name: "Install macchina",
+                    command: "cargo install macchina"
                 },
                 ListNode {
                     name: "Install ctow",
@@ -111,6 +119,10 @@ impl CustomList {
                 ListNode {
                     name: "Setup Librewolf native messaging symlink",
                     command: include_str!("commands/setup-librewolf.sh")
+                },
+                ListNode {
+                    name: "Show command to let user write to serial ports",
+                    command: "echo \"'sudo usermod -aG $USER:$USER GROUP' where group is either uucp for arch or dialout for debian\""
                 }
             }
         });
