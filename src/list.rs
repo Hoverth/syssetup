@@ -82,6 +82,10 @@ impl CustomList {
                     name: "Install Flatpak Applications",
                     command: include_str!("commands/install-flatpak-apps.sh")
                 },
+                ListNode {
+                    name: "Create example fstab",
+                    command: "echo creating example-fstab.txt... \necho \"UUID=<> /home/<> btrfs subvol=<>,defaults,noatime,noautodefrag,ssd 0 0\" > example-fstab.txt"
+                }
             },
             ListNode {
                 name: "Rust",
